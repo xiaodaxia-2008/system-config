@@ -1,5 +1,5 @@
 # vim-config  
-A useful vim-configration including python, c/c++ auto-completion and syntax analysis  
+A useful vim-configration including python, c/c++ auto-completion and syntax analysis  [VIM-HOME](https://www.vim.org)
 
 ## How to use
 
@@ -12,7 +12,9 @@ A useful vim-configration including python, c/c++ auto-completion and syntax ana
   
 ### Preparation  
 - Install pynvim with `pip3 install --user --upgrade pynvim`
+- Install neovim with `pip3 install --user --upgrade neovim`
 - Install jedi with `pip3 install --user --upgrade jedi`  
+- Install clang with `sudo apt install clang`
 
 ### Install Plugins
 - Install vim-plug:   
@@ -22,3 +24,7 @@ A useful vim-configration including python, c/c++ auto-completion and syntax ana
 - open vim and run `:PlugInstall`  
 --------------
 *Search [Vim Awesome](https://vimawesome.com/) to find a lot of funny and useful vim plugins.*
+
+## FAQ
+1. [win32 installation](https://github.com/vim/vim-win32-installer/releases/tag/v8.1.1830)
+2. [gvim with +python](https://blog.csdn.net/weixin_44981444/article/details/89671461)
