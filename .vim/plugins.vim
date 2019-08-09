@@ -4,8 +4,9 @@ Plug 'kien/ctrlp.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
+"CtrlP is better
+"Plug 'junegunn/fzf'
+"Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'haya14busa/incsearch.vim'
 Plug 'tpope/vim-abolish'
