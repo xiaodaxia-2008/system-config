@@ -1,6 +1,5 @@
 inoremap jj <esc>
 nnoremap <space> viw 
-vnoremap  <space> v
 nnoremap , <leader>
 set shiftwidth=4
 set softtabstop=4
@@ -9,8 +8,30 @@ set encoding=utf-8
 set pyxversion=3
 set cursorline
 set number
-iabbrev @@ xiaozisheng2008@qq.com
-set pyxversion=3
+set tags+=tags;  
+set autochdir 
+
+" 自动更新ctags
+function! UpdateCtags()
+    let curdir=getcwd()
+    while !filereadable("./tags")
+        cd ..
+        if getcwd() == "/"
+            break
+        endif
+    endwhile
+    if getcwd() != "/"
+        if filewritable("./tags")
+            !ctags -R --file-scope=yes --langmap=c:+.h --languages=c,c++ --links=yes --c-kinds=+p --c++-kinds=+p --fields=+iaS --extra=+q
+            TlistUpdate
+        endif
+    endif
+    execute ":cd " . curdir
+endfunction
+" normal 模式，F10更新ctags
+nmap <F10> :call UpdateCtags()<CR>
+" 文件变化时自动更新，会频繁更新，产生性能问题
+"autocmd BufWritePost *.c,*.h,*.cpp call UpdateCtags()
 
 so ~/.vim/plugins.vim
 "NerdTree setting
@@ -26,8 +47,8 @@ let g:solarized_termcolors=256
 let g:solarized_bold = 1
 
 " deoplete setting{
-let g:deoplete#enable_at_startup = 1
-let g:python3_host_prog = "/usr/bin/python3"
+"let g:deoplete#enable_at_startup = 1
+"let g:python3_host_prog = "/usr/bin/python3"
 
 "call deoplete#custom#option('omni_patterns', {
 "\ 'python': '[^. *\t]\.\w*',
@@ -52,7 +73,8 @@ augroup Pythonsetting
     autocmd FileType python setlocal completeopt-=preview
 augroup END
 
-let g:ale_completion_enabled=0
+"let g:ale_completion_enabled=0
+"set pyxversion=3
 "let g:ale_linters = {'c++': ['clang'], 'c': ['clang'], 'python': ['pylint', 'autopep8', 'mypy'],}
 ""ale
 """始终开启标志列
@@ -78,3 +100,7 @@ let g:ale_completion_enabled=0
 
 
 let g:solarized_contrast = "high"
+
+iabbrev @@ xiaozisheng2008@qq.com
+iabbrev rvscppheader // Copyright (c) RVBUST, Inc - All rights reserved.
+iabbrev rvspythonheader #!/usr/bin/python3\r\n# -*- coding: utf-8 -*-\r\n# Copyright (c) RVBUST, Inc - All rights reserved. 
