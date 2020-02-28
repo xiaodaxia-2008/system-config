@@ -8,7 +8,7 @@ parser.add_argument("--vimrc", action="store_true", help="install vimrc")
 parser.add_argument("-g", "--git-branch", action="store_true",
                     help="modify .bashrc to show git branch info in terminal")
 parser.add_argument("-s", "--sources-list", action="store_true",
-                    help="modify sources.list to aliyun mirror")
+                    help="modify sources.list to aliyun mirror for Ubuntu18.04")
 parser.add_argument("-d", "--develop-environment", action="store_true",
                     help="install gcc, cmake, pip3, ipython, matplotlib etc.")
 args = parser.parse_args()
