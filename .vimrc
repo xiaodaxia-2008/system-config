@@ -5,7 +5,7 @@ set shiftwidth=4
 set softtabstop=4
 set clipboard+=unnamed
 set encoding=utf-8
-set pyxversion=3
+"set pyxversion=3
 set cursorline
 set number
 set tags+=tags;  
