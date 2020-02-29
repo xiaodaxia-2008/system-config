@@ -1,4 +1,5 @@
 import os
+import shutil
 import argparse
 
 parser = argparse.ArgumentParser(description="Linux config arguments")
@@ -16,9 +17,10 @@ parser.add_argument("-p", "--pip-sources", action="store_true",
 args = parser.parse_args()
 
 if args.vim_plug:
-    cmd = "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-    print(cmd)
-    os.system(cmd)
+    # cmd = "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+    # print(cmd)
+    # os.system(cmd)
+    shutil.copyfile("./plug.vim", "~/.vim/autoload/plug.vim")
 
 if args.vim_plug or args.vimrc:
     cmd = "cp .vimrc ~/"
