@@ -11,8 +11,9 @@ parser.add_argument("-s", "--sources-list", action="store_true",
                     help="modify sources.list to aliyun mirror for Ubuntu18.04")
 parser.add_argument("-d", "--develop-environment", action="store_true",
                     help="install gcc, cmake, pip3, ipython, matplotlib etc.")
+parser.add_argument("-p", "--pip-sources", action="store_true",
+                    help="change pip source to aliyun mirrors")
 args = parser.parse_args()
-
 
 if args.vim_plug:
     cmd = "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
@@ -33,6 +34,11 @@ if args.git_branch:
     os.system("git config --global credential.helper cache")
     os.system("git config --global user.email 'xiaozisheng2008@qq.com'")
     os.system("git config --global user.name xiaodaxia-2008")
+
+if args.pip_sources:
+    os.makedirs("{home}/.pip".format(home=os.environ['HOME']), exist_ok=True)
+    with open("{home}/.pip/pip.conf".format(home=os.environ['HOME']), 'w') as f:
+        f.write("[global]\r\nindex-url = https://mirrors.aliyun.com/pypi/simple\r\n")
 
 if args.sources_list:
     os.system("sudo mv /etc/apt/sources.list /etc/apt/sources.list.backup")
