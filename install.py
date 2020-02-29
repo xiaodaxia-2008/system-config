@@ -2,6 +2,8 @@ import os
 import shutil
 import argparse
 
+home = os.environ["HOME"]
+
 parser = argparse.ArgumentParser(description="Linux config arguments")
 parser.add_argument("-v", "--vim-plug", action="store_true",
                     help="install vim-plug")
@@ -20,7 +22,7 @@ if args.vim_plug:
     # cmd = "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
     # print(cmd)
     # os.system(cmd)
-    shutil.copyfile("./plug.vim", "~/.vim/autoload/plug.vim")
+    shutil.copyfile("./plug.vim", home + "/.vim/autoload/plug.vim")
 
 if args.vim_plug or args.vimrc:
     cmd = "cp .vimrc ~/"
@@ -32,7 +34,7 @@ if args.vim_plug or args.vimrc:
 
 if args.git_branch:
     os.system("cat .bashrc >> ~/.bashrc")
-    os.system("source ~/.bashrc")
+    # os.system("source ~/.bashrc")
     os.system("git config --global credential.helper cache")
     os.system("git config --global user.email 'xiaozisheng2008@qq.com'")
     os.system("git config --global user.name xiaodaxia-2008")
