@@ -21,10 +21,16 @@ args = parser.parse_args()
 if args.vim_plug:
     # cmd = "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
     # print(cmd)
-    # os.system(cmd)
+    os.system("mkdir -p ~/.vim/autoload")
     shutil.copyfile("./plug.vim", home + "/.vim/autoload/plug.vim")
 
 if args.vim_plug or args.vimrc:
+    os.system("mkdir -p ~/.vim/autoload")
+    os.system("pip3 install pynvim")
+
+    os.system(
+        "sudo apt install vim-gui-common clang-7 clang-tools clang-format universal-ctags")
+    shutil.copyfile("./plug.vim", home + "/.vim/autoload/plug.vim")
     cmd = "cp .vimrc ~/"
     print(cmd)
     os.system(cmd)
