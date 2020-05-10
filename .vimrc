@@ -30,7 +30,7 @@ let g:deoplete#enable_at_startup = 1
 let g:python3_host_prog = "/usr/bin/python3"
 
 autocmd CompleteDone * silent! pclose!
-set completeopt-=preview
+"set completeopt-=preview
 
 "supertab setting
 let g:SuperTabDefaultCompletionType = "<c-n>"
@@ -46,8 +46,8 @@ augroup Pythonsetting
 augroup END
 nmap , <Leader>
 
-let g:ale_completion_enabled=0
-let g:ale_linters = {'c++': ['clang'], 'c': ['clang'], 'python': ['pylint', 'autopep8', 'mypy'],}
+let g:ale_completion_enabled=1
+let g:ale_linters = {'c++': ['g++'], 'c': ['gcc'], 'python': ['pylint', 'autopep8', 'mypy'],}
 ""ale
 """始终开启标志列
 let g:ale_sign_column_always = 1
@@ -95,13 +95,14 @@ let g:clang_format#detect_style_file = 1
 " map to <Leader>cf in C++ code
 autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
-autocmd FileType c,cpp.objc ClangFormatAutoEnable
+autocmd FileType c,cpp,objc ClangFormatAutoEnable
 
 let g:autopep8_on_save = 1
 let g:autopep8_disable_show_diff = 1
 
 let g:auto_save = 1  " enable AutoSave on Vim startup
-let g:auto_save_events = ["InsertLeave", "TextChanged", "CompleteDone"]
+"let g:auto_save_events = ["InsertLeave", "TextChanged", "CompleteDone"]
+let g:auto_save_events = ["InsertLeave"]
 
 iabbrev @@ xiaozisheng2008@qq.com
 iabbrev rvscppheader // Copyright (c) RVBUST, Inc - All rights reserved.

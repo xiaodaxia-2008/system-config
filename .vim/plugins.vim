@@ -23,7 +23,7 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 Plug 'zchee/deoplete-jedi'
-"Plug 'Shougo/deoplete-clangx'
+Plug 'Shougo/deoplete-clangx'
 Plug 'ervandew/supertab'
 Plug 'pseewald/vim-anyfold'
 Plug 'tpope/vim-eunuch'
