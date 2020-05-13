@@ -16,7 +16,13 @@ parser.add_argument("-d", "--develop-environment", action="store_true",
                     help="install gcc, cmake, pip3, ipython, matplotlib etc.")
 parser.add_argument("-p", "--pip-sources", action="store_true",
                     help="change pip source to aliyun mirrors")
+parser.add_argument("--space-vim", action="store_true",
+                    help="copy space vim configuraiton")
+
 args = parser.parse_args()
+if not any(vars(args).values()):
+    print("using 'python install.py -h' to get help documention")
+
 
 if args.vim_plug:
     # cmd = "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
@@ -35,6 +41,10 @@ if args.vim_plug or args.vimrc:
     print(cmd)
     os.system(cmd)
     cmd = "cp -r .vim ~/"
+    print(cmd)
+    os.system(cmd)
+if args.space_vim:
+    cmd = "cp -r ./.SpaceVim.d ~/"
     print(cmd)
     os.system(cmd)
 
@@ -59,3 +69,4 @@ if args.develop_environment:
     os.system("sudo apt install build-essential cmake python3-pip exuberant-ctags")
     os.system("sudo apt autoremove")
     os.system("sudo pip3 install ipython matplotlib")
+
