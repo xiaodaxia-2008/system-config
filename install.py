@@ -19,6 +19,8 @@ parser.add_argument("-p", "--pip-sources", action="store_true",
 parser.add_argument("--space-vim", action="store_true",
                     help="copy space vim configuraiton")
 
+parser.add_argument("--install-spacevim", action="store_true",
+                    help="install spacevim")
 args = parser.parse_args()
 if not any(vars(args).values()):
     print("using 'python install.py -h' to get help documention")
@@ -43,6 +45,12 @@ if args.vim_plug or args.vimrc:
     cmd = "cp -r .vim ~/"
     print(cmd)
     os.system(cmd)
+
+if args.install_spacevim:
+    cmd = "curl -sLf https://spacevim.org/cn/install.sh | bash"
+    print(cmd)
+    os.system(cmd)
+
 if args.space_vim:
     cmd = "cp -r ./.SpaceVim.d ~/"
     print(cmd)
