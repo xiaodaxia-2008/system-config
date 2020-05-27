@@ -1,0 +1,35 @@
+function listimages() {
+    sudo docker images 
+}
+
+# run docker with GUI enabled
+# usage: runimage imagename:tag --name=Test
+function runimage() {
+    sudo docker run -it -p 5180:5180 -e "DISPLAY=unix:0.0" -v="/tmp/.X11-unix:/tmp/.X11-unix:rw" --privileged --net=host $2 $3 "$1" bash
+}
+
+function commitimage() {
+    # $1: container id, $2 new_image_name:tag_name
+    sudo docker commit $1 $2
+}
+
+
+# access docker image in another terminal 
+function listcontainers() {
+    sudo docker container ls -a
+}
+
+# access docker image in another terminal 
+function attachcontainer() {
+    sudo docker exec -it "$1" bash
+}
+
+# start container
+function startcontainer() {
+    sudo docker container start $1
+}
+
+# stop container
+function stopcontainer() {
+    sudo docker container stop $1
+}
