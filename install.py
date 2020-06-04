@@ -68,11 +68,8 @@ if args.install_spacevim:
     cmd = "curl -sLf https://spacevim.org/cn/install.sh | bash"
     RunCmd(cmd)
 
-if args.install_space_vim:
-    cmd = "cp -r ./.SpaceVim.d ~/"
-    RunCmd(cmd)
 if args.space_vim:
-    cmd = "curl -sLf https://spacevim.org/install.sh | bash"
+    cmd = "cp -r ./.SpaceVim.d ~/"
     RunCmd(cmd)
 
 if args.git_branch:
