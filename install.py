@@ -81,6 +81,13 @@ if args.git_branch:
 
 if args.docker_shortcut:
     RunCmd("cat .bashrc_docker >> ~/.bashrc")
+    print("Run the follow command to config docker hub mirros",
+          """mkdir -p /etc/docker
+    sudo tee /etc/docker/daemon.json <<-'EOF'
+    {
+    "registry-mirrors": ["https://registry.docker-cn.com", "http://hub-mirror.c.163.com"]
+    }
+    """)
     print("run 'sudo apt install docker*' to install docker")
 
 if args.pip_sources:
