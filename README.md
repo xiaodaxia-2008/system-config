@@ -1,8 +1,12 @@
 # vim-config  
-A useful vim-configration including python, c/c++ auto-completion and syntax analysis  [VIM-HOME](https://www.vim.org)
+A useful system-configration tool for Linux Debian/Deepin system, including installing spacevim, apt-source mirror changing, docker shortcut keys, etc.
 
-## How to use
+# How to use
 
+## Basic usage
+run with `python3 install.py -h` to see the help documents.
+
+## Vim configuration
 ### Install Vim >= 8.0
 - See [Vim Installation](https://github.com/vim/vim)  
 - Or:
@@ -24,6 +28,11 @@ A useful vim-configration including python, c/c++ auto-completion and syntax ana
 - open vim and run `:PlugInstall`  
 --------------
 *Search [Vim Awesome](https://vimawesome.com/) to find a lot of funny and useful vim plugins.*
+
+## Miscellaneous
+
+- `sudo apt install bash-completion` to enable tab completion in your terminal
+- `sudo apt install neovim` to install `neovim` before you install spacevim
 
 ## FAQ
 1. [win32 installation](https://github.com/vim/vim-win32-installer/releases/tag/v8.1.1830)
