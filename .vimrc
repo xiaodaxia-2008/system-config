@@ -1,4 +1,4 @@
-inoremap jj <esc>
+inoremap jk <esc>
 nnoremap <space> viw 
 nnoremap , <leader>
 set shiftwidth=4
