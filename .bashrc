@@ -20,3 +20,9 @@ find_git_branch () {
 
 PROMPT_COMMAND="find_git_branch; $PROMPT_COMMAND"
 PS1="\u@\h:\w\[\033[0;32m\]\$git_branch\[\033[0m\] \$ "
+
+# demangler for c++ debug
+function demangle(){
+    python3 -c "import sys;import demangler;print(demangler.demangle(sys.argv[1]))" $@
+}
+
