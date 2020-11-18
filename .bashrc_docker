@@ -1,3 +1,5 @@
+# list all images
+# usange: listimages
 function listimages() {
     sudo docker images 
 }
@@ -34,3 +36,9 @@ function stopcontainer() {
     sudo docker container stop $1
 }
 
+# remove a container
+# usage: rmcontainer 3332121
+function rmcontainer() {
+    # $1 : container ID
+    sudo docker container rm $1
+}

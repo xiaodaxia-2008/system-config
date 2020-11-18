@@ -1,4 +1,4 @@
-# vim-config  
+# system-config  
 A useful system-configration tool for Linux Debian/Deepin system, including installing spacevim, apt-source mirror changing, docker shortcut keys, etc.
 
 # How to use
