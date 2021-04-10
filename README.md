@@ -6,6 +6,30 @@ A useful system-configration tool for Linux Debian/Deepin system, including inst
 ## Basic usage
 run with `python3 install.py -h` to see the help documents.
 
+## System libraries
+
+```shell
+sudo apt install build-essential cmake cmake-qt-gui gcc liblapack-dev libglew-dev libace-dev libssh2-1-dev 
+sudo apt install libx11-6 libxrandr2 libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev python3-tk python3-pip libeigen3-dev pybind11-dev
+```
+`sudo apt install libglu-mesa` 或者`sudo apt install libglu1-mesa-dev`
+
+## pypi libraries
+
+If you are in China, use the mirror website:
+
+```shell
+pip3 install notebook scipy pandas numpy open3d vtk kiwizen pyside6 pyqt5 trimesh pyglet shapely transforms3d -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
+If you want to get the latest version from [Pypi](pypi.org)，use
+
+```
+pip3 install notebook scipy pandas numpy open3d vtk kiwizen pyside6 pyqt5 trimesh pyglet shapely transforms3d -i https://pypi.org/project
+```
+
+
+
 ## Vim configuration
 ### Install Vim >= 8.0
 - See [Vim Installation](https://github.com/vim/vim)  
