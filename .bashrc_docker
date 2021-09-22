@@ -1,44 +1,54 @@
+# using sudo apt install docker-ce  to install docker
 # list all images
 # usange: listimages
-function listimages() {
-    sudo docker images 
+function docker-listimages() {
+    echo "sudo docker images"
+    sudo docker images
 }
 
 # run docker with GUI enabled
 # usage: runimage imagename:tag --name=Test
-function runimage() {
+function docker-runimage() {
+    echo sudo xhost +
+    echo sudo docker run -it -p 5180:5180 -e "DISPLAY=unix:0.0" -v="/tmp/.X11-unix:/tmp/.X11-unix:rw" --privileged --net=host $2 $3 "$1" bash
     sudo xhost +
     sudo docker run -it -p 5180:5180 -e "DISPLAY=unix:0.0" -v="/tmp/.X11-unix:/tmp/.X11-unix:rw" --privileged --net=host $2 $3 "$1" bash
 }
 
-function commitimage() {
+function docker-commitimage() {
     # $1: container id, $2 new_image_name:tag_name
+    echo sudo docker commit $1 $2
     sudo docker commit $1 $2
 }
 
-# access docker image in another terminal 
-function listcontainers() {
+# access docker image in another terminal
+function docker-listcontainers() {
+    echo sudo docker container ls -a
     sudo docker container ls -a
 }
 
-# access docker image in another terminal 
-function attachcontainer() {
+# access docker image in another terminal
+function docker-attachcontainer() {
+    echo sudo docker exec -it "$1" bash
     sudo docker exec -it "$1" bash
 }
 
 # start container
-function startcontainer() {
+function docker-startcontainer() {
+    echo sudo docker container start $1
     sudo docker container start $1
 }
 
 # stop container
-function stopcontainer() {
+function docker-stopcontainer() {
+    echo sudo docker container stop $1
     sudo docker container stop $1
 }
 
 # remove a container
 # usage: rmcontainer 3332121
-function rmcontainer() {
+function docker-rmcontainer() {
     # $1 : container ID
+    echo sudo docker container rm $1
     sudo docker container rm $1
 }
