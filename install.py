@@ -51,7 +51,7 @@ if args.vim_plug:
     RunCmd("mkdir -p ~/.vim/autoload")
     shutil.copyfile("./plug.vim", home + "/.vim/autoload/plug.vim")
 
-if args.vim_plug or args.vimrc:
+if args.vimrc:
     # SpaceVim is preferred
     RunCmd("mkdir -p ~/.vim/autoload")
     RunCmd("pip3 install pynvim")
