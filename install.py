@@ -49,7 +49,12 @@ if args.vim_plug:
     # RunCmd(cmd)
     # Install vim_plug offline
     RunCmd("mkdir -p ~/.vim/autoload")
-    shutil.copyfile("./plug.vim", home + "/.vim/autoload/plug.vim")
+    cmd = "cp plug.vim ~/.vim/autoload/plug.vim"
+    RunCmd(cmd)
+    cmd = "cp .vimrc ~/"
+    RunCmd(cmd)
+    cmd = "cp -r .vim ~/"
+    RunCmd(cmd)
 
 if args.vimrc:
     # SpaceVim is preferred
@@ -75,7 +80,7 @@ if args.space_vim:
 if args.git_branch:
     RunCmd("cat .bashrc >> ~/.bashrc")
     # RunCmd("source ~/.bashrc")
-    RunCmd("git config --global credential.helper cache")
+    RunCmd('git config --global credential.helper "cache --timeout=72000"')
     RunCmd("git config --global user.email 'xiaozisheng2008@qq.com'")
     RunCmd("git config --global user.name xiaodaxia-2008")
 
