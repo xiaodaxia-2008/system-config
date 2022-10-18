@@ -26,3 +26,18 @@ function demangle(){
     python3 -c "import sys;import demangler;print(demangler.demangle(sys.argv[1]))" $@
 }
 
+function set_proxy {
+    # export http_proxy=http://username:password@proxyserver.net:port/
+    # export ftp_proxy=http://username:password@proxyserver.netport/
+    export http_proxy=http://127.0.0.1:8889
+    export https_proxy=http://127.0.0.1:8889
+    echo "set http_proxy=http://127.0.0.1:8889 and  https_proxy=http://127.0.0.1:8889"
+}
+
+function unset_proxy {
+    # export http_proxy=http://username:password@proxyserver.net:port/
+    # export ftp_proxy=http://username:password@proxyserver.netport/
+    export http_proxy=
+    export https_proxy=
+    echo "unset http_proxy and https_proxy"
+}
