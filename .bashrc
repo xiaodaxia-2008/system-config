@@ -28,10 +28,18 @@ function demangle(){
 
 function set_proxy {
     # export http_proxy=http://username:password@proxyserver.net:port/
+    # export https_proxy=http://username:password@proxyserver.net:port/
     # export ftp_proxy=http://username:password@proxyserver.netport/
-    export http_proxy=http://127.0.0.1:8889
-    export https_proxy=http://127.0.0.1:8889
-    echo "set http_proxy=http://127.0.0.1:8889 and  https_proxy=http://127.0.0.1:8889"
+    if [ $1 ]; then
+        export http_proxy=http://127.0.0.1:$1
+        export https_proxy=http://127.0.0.1:$1
+        export ftp_proxy=http://127.0.0.1:$1
+    else
+        export http_proxy=http://127.0.0.1:8889
+        export https_proxy=http://127.0.0.1:8889
+        export ftp_proxy=http://127.0.0.1:8889
+    fi
+    echo "set http_proxy=$http_proxy and  https_proxy=$https_proxy"
 }
 
 function unset_proxy {
@@ -41,3 +49,4 @@ function unset_proxy {
     export https_proxy=
     echo "unset http_proxy and https_proxy"
 }
+

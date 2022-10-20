@@ -1,9 +1,9 @@
 call plug#begin('~/.vim/plugged')
-Plug '907th/vim-auto-save'
+"Plug '907th/vim-auto-save'
 Plug 'tell-k/vim-autopep8'
 "Plug 'rhysd/vim-clang-format'
 "Plug 'rip-rip/clang_complete'
-Plug 'ludovicchabant/vim-gutentags'
+"Plug 'ludovicchabant/vim-gutentags'
 Plug 'scrooloose/nerdcommenter'
 Plug 'kien/ctrlp.vim'
 Plug 'altercation/vim-colors-solarized'

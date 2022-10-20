@@ -26,10 +26,10 @@ let g:solarized_termcolors=256
 let g:solarized_bold = 1
 
 " deoplete setting{
-let g:deoplete#enable_at_startup = 1
-let g:python3_host_prog = "/usr/bin/python3"
+" let g:deoplete#enable_at_startup = 1
+" let g:python3_host_prog = "/usr/bin/python3"
 
-autocmd CompleteDone * silent! pclose!
+" autocmd CompleteDone * silent! pclose!
 "set completeopt-=preview
 
 "supertab setting
@@ -38,13 +38,13 @@ map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
-augroup Pythonsetting
-    autocmd!
-    autocmd FileType python map , <localleader>
-    autocmd FileType python nnoremap <buffer> <localleader>c I#<space><esc>
-    autocmd FileType python setlocal completeopt-=preview
-augroup END
-nmap , <Leader>
+" augroup Pythonsetting
+"     autocmd!
+"     autocmd FileType python map , <localleader>
+"     autocmd FileType python nnoremap <buffer> <localleader>c I#<space><esc>
+"     autocmd FileType python setlocal completeopt-=preview
+" augroup END
+" nmap , <Leader>
 
 "let g:ale_completion_enabled=1
 "let g:ale_linters = {'c++': ['g++'], 'c': ['gcc'], 'python': ['pylint', 'autopep8', 'mypy'],}
@@ -56,7 +56,7 @@ nmap , <Leader>
 "let g:ale_sign_error = '✗'
 "let g:ale_sign_warning = '⚡'
 """"在vim自带的状态栏中整合ale
-let g:ale_statusline_format = ['✗ %d', '⚡ %d', '✔ OK']
+" let g:ale_statusline_format = ['✗ %d', '⚡ %d', '✔ OK']
 """显示Linter名称,出错或警告等相关信息
 "let g:ale_echo_msg_error_str = 'E'
 "let g:ale_echo_msg_warning_str = 'W'
